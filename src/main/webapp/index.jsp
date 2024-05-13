@@ -11,7 +11,7 @@
 
 
 <body>
-<h1> Simple demo to demonstrate automated builds<h1>
+<h1> Simple demo to demonstrate automated builds</h1>
     </body>
 
 </html>
