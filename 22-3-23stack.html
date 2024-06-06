@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Stack operations using arrays</title>
+</head>
+<body>
+    <script>
+        var myStack=[];
+        alert("size of the stack is "+myStack.length);
+        var myStack=[13];
+        alert("the elements of the stack is "+myStack);
+        myStack.push(30);
+        alert("the elements of the stack is"+myStack);
+        var popped=myStack.pop();
+        alert('the popped element is '+popped);
+        var ar=[]
+        Array.prototype.isEmpty=function(){
+             if(this.length==0)
+                alert("stack is empty");
+        }
+        ar.isEmpty();
+        Array.prototype.displayTop=function(){
+            var arr=this
+            alert("the top element is "+arr[arr.length-1])
+        }
+        Array.prototype.isUnderFloww=function(){
+            if(this.length==0)
+            {
+                alert("you cant pop")
+                return true;
+            }
+            else
+            return false;
+        }
+        myStack.displayTop()
+        while(!myStack.isUnderFloww())
+        {
+             myStack.pop(myStack.length-1);
+        }
+        
+    </script>
+</body>
+</html>

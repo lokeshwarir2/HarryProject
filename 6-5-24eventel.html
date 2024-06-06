@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>DOM</title>
+</head>
+<body>
+<input type="text" id="keytxt" placeholder="Type here....">
+<input type="button" id="btn" value="Click me" >
+<div id="div" style="width:100px; height:100px;"></div>
+
+
+
+
+<script>
+
+
+let btn=document.getElementById('btn');
+btn.addEventListener('click',function(){
+	alert("Button clicked");
+});
+
+
+let txt =document.getElementById('keytxt');
+txt.addEventListener('keydown',function(e){
+	console.log("key was : ",e.key);
+}); 
+
+
+
+let div=document.getElementById('div');
+div.addEventListener('mouseover', function(){
+	div.style.backgroundColor="lightblue";
+});
+
+div.addEventListener('mouseout', function(){
+        div.style.backgroundColor="lightgreen";
+});
+
+
+
+
+
+
+
+
+let obj = {name:"RVCE", yearin : 2023, yearout: 2025};
+console.log(obj);
+
+
+let nestobj = {name:"RVCE", class:"MCA", year:{in:2023,out:2025}};
+console.log(nestobj);
+
+
+let nestobj1 = new Object();
+
+nestobj1.name="rvce";
+nestobj1.class="mca";
+nestobj1.nestyear={prest:"rvce",past:"gsc"};
+
+console.log(nestobj1);
+
+
+function animal(name1,shout){
+		this.name1=name1;
+		this.shout=shout;
+	
+		console.log(this.name1," will ",this.shout);
+};
+
+let Animal=new animal("Dog", "bark");
+
+console.log(Animal);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+

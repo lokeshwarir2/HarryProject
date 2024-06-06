@@ -1,0 +1,41 @@
+<html>
+        <head>
+                <title>XML</title>
+                
+        </head>
+                        <body>
+        <button type="button" onclick="studentdata()"> click to fetch details </button>
+        <br><br>
+        <table id="demo"></table>
+        <script>
+            function studentdata(){
+                var bro = new XMLHttpRequest();
+                bro.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200){
+                        func(this);
+                        console.log("hey");
+                    }
+                };
+            bro.open("GET", "student.xml",true);
+            bro.send();
+            }
+
+                        function func(xml)
+                        {
+                                var i;
+                                var xmlDoc = xml.responseXML;
+                                console.log(xmlDoc);
+                                var table = "<table border='1'><tr><th>NAME</th><th>ADDRESS</th><th>EMAIL</th><th>PHONENO</th></tr>";
+                                var x = xmlDoc.getElementsByTagName("student");
+
+                                for (i = 0; i <x.length; i++) {
+                                        table += "<tr><td>" + x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +"</td><td>" +
+                                                x[i].getElementsByTagName("address")[0].childNodes[0].nodeValue +"</td><td>" + x[i].getElementsByTagName("emailid")[0].childNodes[0].nodeValue +"</td><td>"+x[i].getElementsByTagName("phoneno")[0].childNodes[0].nodeValue
+                                                "</td></tr>" ;
+                                                        }
+                                                table+="</table>";
+                                                 document.getElementById("demo").innerHTML = table;
+                                                }
+                        </script>
+                </body>
+                </html>

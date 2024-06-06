@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Shapes</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        svg {
+            background-color: yellow;
+        }
+        .shape {
+            fill: red;
+            stroke: white;
+            stroke-width: 2;
+        }
+    </style>
+</head>
+<body>
+    <svg width="1000" height="1000"></svg>
+    <script>
+        const svg = d3.select("svg");
+
+        svg.append("circle")
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .attr("r", 50)
+            .attr("class", "shape");
+
+        svg.append("rect")
+            .attr("x", 200)
+            .attr("y", 50)
+            .attr("width", 100)
+            .attr("height", 80)
+            .attr("class", "shape");
+
+        const trianglePoints = "600,700,500,500,500,700";
+        svg.append("polygon")
+            .attr("points", trianglePoints)
+            .attr("class", "shape");
+
+        const starPoints = "100,50 112,88 150,88 125,112 137,150 100,130 63,150 75,112 50,88 88,88";
+        svg.append("polygon")
+            .attr("points", starPoints)
+            .attr("class", "shape");
+    </script>
+</body>
+</html>

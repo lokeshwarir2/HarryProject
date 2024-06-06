@@ -1,0 +1,23 @@
+
+<students>
+        <student>
+                <name>Lokeshwarir</name>
+                <address>Banglore</address>
+                <emailid>lok@gmail.com</emailid>
+                <phoneno>8971402501</phoneno>
+        </student>
+        <student>
+                <name>Vivek Kumar M</name>
+                <address>Banglore</address>
+                <emailid>vicky@gmail.com</emailid>
+                <phoneno>1234567890</phoneno>
+
+        </student>
+        <student>
+                <name>Dheeraj</name>
+                <address>Banglore</address>
+                <emailid>dee@gmail.com</emailid>
+                <phoneno>0987654321</phoneno>
+
+        </student>
+</students>

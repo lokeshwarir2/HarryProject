@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+<style>
+	 body{
+                                display:flex;
+                                align-text:center;
+                                align-items:center;
+                                justify-content:center;
+                                background-color:#f0f0f0;
+                                padding:200px;
+                        }
+           .hai{
+		align-text:center;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		width:400px;
+		height:400px;
+                background-color:yellow;
+                                color:black;
+
+                        }
+</style>
+
+</head>
+<body>
+<div class="hai">
+    <form onsubmit="return validate()">
+	<label for="name">Name:</label>
+	<input type="text" id="name" ><br><br>
+	<label for="phone">Phone:</label>
+	<input type="number" id="phone"><br><br>
+	<label for="email">Email:</label>
+	<input type="email" id="email"><br><br>
+	<label for="password">Password:</label>
+	<input type="text" id="password"><br><br>
+        <label for="age">Age:</label>
+	<input type="number" id="age"><br><br>
+	<input type="submit" value="Submit">
+</form>
+</div>
+    <script>
+        function validate() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var password = document.getElementById("password").value;
+            var age=document.getElementById("age").value;
+            var nameRegex = /^[a-zA-Z\s]+$/;
+            var emailRegex = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+            var phoneRegex = /^\d{10}$/;
+            var passwordRegex = /^[a-zA-Z0-9]{8,}$/;
+            var ageRegex= /^\d{2}/;
+            if (!name.match(nameRegex)) {
+                alert("Only alphabets are allowed");
+                return false;
+            }
+
+            if (!email.match(emailRegex)) {
+                alert("enter a valid email");
+                return false;
+            }
+
+            if (!phone.match(phoneRegex)) {
+                alert("Enter only 10 numbers");
+                return false;
+            }
+
+            if (!password.match(passwordRegex)) {
+                alert("Password must contain at least one digit, one lowercase and one uppercase letter, and be at least 8 characters long.");
+                return false;
+            }
+	  if(!age.match(ageRegex)){
+		alert("enter valid age")
+		return false;}
+
+            return true;
+        }
+    </script>
+</body>
+</html>
+

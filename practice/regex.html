@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title> Regex</title>
+	</head>
+	<body>
+		<form onsubmit="return validate">
+			<fieldset>
+				<legend>Validation</legend>
+					Name:<input type="text" id="name">
+					phone no:<input type="number" id="phone">
+					password: <input type="text" id="password">
+					age:<input type="number" id="age">
+					<input type="submit" value="submit">
+			</fieldset>
+		</form>
+		<script>
+			var name=document.getElementById("name");
+			var phone=document.getElementById("phone");
+			var password=document.getElementById("password");
+			var age=document.getElementById("age");
+			var rn=/^\w/;
+			var ph=/^\d{10}$/;
+			var 

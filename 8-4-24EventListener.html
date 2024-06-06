@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM events</title>
+		<style>
+		#rec{
+			height:200px;
+			width:200px;
+			background-color: red;
+		}</style>
+
+	</head>
+	<body>
+		<div id="rec"> </div>
+		<script>
+			console.log("first way using new ");
+			var obj=new Object();
+			console.log(obj);
+			var obj2={'name':'lokeshwari r','age':21,'skills':{1:'html',2:'css',3:'js'}};
+			console.log(obj2);
+			console.log("using constructor");
+			function ob3(name,age)
+			{
+				this.namee=name;
+				this.age=age;
+			}
+			var o1=new ob3("lokeshwari r",21);
+			console.log(o1);
+			var e1=document.getElementById("rec")
+			e1.addEventListener("click",function(){
+							console.log("onclick performed")});
+			e1.addEventListener("mouseover",function(){
+							console.log("mouse over performed")});
+			e1.addEventListener("mouseout",function(){
+							console.log("mouse out performed")});
+			e1.addEventListener("keypress",function(){
+							console.log("key press performed")});
+			e1.addEventListener("select",function(){
+							console.log("selected")});
+		</script>
+	</body>
+</html>

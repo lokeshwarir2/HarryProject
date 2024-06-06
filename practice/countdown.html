@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title> coutdown</title>
+	</head>
+	<body>
+		<form id="f">
+			<input type="datetime-local" id="time">
+			<input type="submit" value="submit" id="submit">
+		</form>
+		<div id="res"></div>
+		<script>
+			document.getElementById("f").addEventListener("submit",function(event){
+				event.preventDefault();
+				var tar=new Date(document.getElementById("time").value).getTime();
+				func(tar);
+				});
+			function func(target){
+				var int=setInterval(function(){
+					var star=new Date().getTime();
+					var diff=target-star;
+					var d=Math.floor(diff/(1000*60*60*24));
+					var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+					var m=Math.floor((diff%(1000*60*60))/(1000*60));
+					var s=Math.floor((diff%(1000*60))/(1000));
+				if(diff<0){
+					clearInterval(int);
+					document.getElementById("res").innerHTML="invalid";
+					}else
+				document.getElementById("res").innerHTML=d+" days "+h+" hours "+m+" minutes "+s+" seconds";
+				},1000);
+			}
+			</script>
+		</body>	
+	</html>

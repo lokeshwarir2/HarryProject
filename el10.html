@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>population</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .bar {
+            fill: yellow;
+        }
+
+        .bar:hover {
+            fill: red;
+        }
+
+        .axis-label {
+            font-size: 14px;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: black;
+           
+        }
+    </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="container">
+    <h2 class="text-center display-4 m-4">Population</h2>
+	<dev class="text-center">
+    <svg width="800" height="500" id="bar-chart" class=""></svg>
+	</div>
+    <script>
+        const data = [
+            { year: 2021, population: 100 },
+            { year: 2022, population: 105 },
+            { year: 2023, population: 70 }
+        ];
+
+        const svg = d3.select("#bar-chart"),
+            margin = { top: 20, right: 20, bottom: 30, left: 40 },
+            width = +svg.attr("width") - margin.left - margin.right,
+            height = +svg.attr("height") - margin.top - margin.bottom;
+
+        const g = svg.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        const x = d3.scaleBand()
+            .rangeRound([0, width])
+            .padding(0.1)
+            .domain(data.map(d => d.year));
+
+        const y = d3.scaleLinear()
+            .rangeRound([height, 0])
+            .domain([0, d3.max(data, d => d.population)]);
+
+        g.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", d => x(d.year))
+            .attr("y", d => y(d.population))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.population));
+
+        g.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
+
+        g.append("g")
+            .attr("class", "axis")
+            .call(d3.axisLeft(y));
+
+        svg.append("text")
+            .attr("class", "axis-label")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -5)
+            .attr("x", 0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Population");
+
+        svg.append("text")
+            .attr("class", "axis-label")
+            .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .text("Year");
+    </script>
+</body>
+</html>

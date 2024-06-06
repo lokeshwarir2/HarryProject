@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Countdown </title>
+		<style>
+			body{
+				display:flex;
+				align-text:center;
+				align-items:center;
+				justify-content:center;
+				background-color:#f0f0f0;
+				padding:200px;
+			}
+			.card{
+				background-color:#fff;
+				width:300px;
+				margin-top:20px;
+				border-radius:20px;
+				align-text:center;
+			}
+			input[type="submit"],input[type="datetime-local"]{
+				margin-top:20px;	
+				border-color:#ccc;
+			}
+			.countdown{
+				color:black;
+				
+			}
+		</style>
+	</head>
+	<body>
+	
+		<div class="card">
+		<h1>count down </h1>
+		
+			<form id="timer">
+				<label for="inputtimer">Enter time and date</label><br>
+				<input type="datetime-local" id="getTime"><br>
+				<input type="submit" id="submit" value="submit"><br>
+			</form>
+			<div id="countdown"></div>
+		</div>
+		<script>
+			document.getElementById("timer").addEventListener("submit",function(event)
+					{
+						event.preventDefault();
+						console.log(document.getElementById("getTime"));
+						var target1=new Date(document.getElementById("getTime").value).getTime();
+						console.log(target1);
+						countTimeDate(target1);
+					});
+			function countTimeDate(target)
+			{
+				var x=setInterval(function()		
+					{
+						var now=new Date().getTime();
+						console.log(now);
+						var diff=target-now;
+						var days=Math.floor(diff/(1000*60*60*24));
+						var hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+						var minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+						var seconds=Math.floor((diff%(1000*60))/1000);
+						document.getElementById("countdown").innerHTML=days+"d "+hours+"h "+minutes+"m "+seconds+"s ";
+						if(diff<0)
+						{
+							clearInterval(x);
+							document.getElementById("countdown").innerHTML="INVALID";
+						}
+					},1000);
+			}
+		</script>
+	</body>
+</html>

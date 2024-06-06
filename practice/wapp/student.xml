@@ -1,0 +1,10 @@
+<students>
+	<student>
+		<name>loki</name>
+		<class> Mca</class>
+	</student>
+	<student>
+		<name>vicky</name>
+		<class>Mca</class>
+	</student>
+</students>

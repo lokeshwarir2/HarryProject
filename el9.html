@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title>JSON</title>
+	<style>
+	
+	th,td{padding : 5px}
+	</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="container">
+
+<div class="container">
+<input type="button" id="facult" value="Click here" class="mt-5 btn btn-outline-secondary">
+
+<ol id="table" class="mt-4"></ol>
+
+</div>
+
+
+
+
+<script>
+	var json={
+		"clg":"RVCE",
+		"Deprt,":"MCA",
+		"faculty":	[
+				{
+					"id":"1",
+					"name":"abc",
+					"desig":"a",
+					"specs":"b"
+				},
+                                { 
+                                        "id":"2",
+                                        "name":"cde",
+                                        "desig":"c",
+                                        "specs":"d" 
+                                },
+                                { 
+                                        "id":"3",
+                                        "name":"efg",
+                                        "desig":"e",
+                                        "specs":"f" 
+                                },
+                                { 
+                                        "id":"4",
+                                        "name":"ghi",
+                                        "desig":"g",
+                                        "specs":"h" 
+                                },
+                                { 
+                                        "id":"5",
+                                        "name":"ijk",
+                                        "desig":"i",
+                                        "specs":"j" 
+                                }				
+				]
+	
+		}
+	var table = document.getElementById('table');
+	
+
+	function faculty(){
+		json.faculty.forEach(m =>{
+			var r=document.createElement('tr');
+					r=`<li><h5>Faculty Details</h5></li>
+					<ul>
+						<li>ID : ${m.id}</li>
+						<li>Name : ${m.name}</li>
+						<li>Designation : ${m.desig}</li>
+						<li>Specialization : ${m.specs}</li>
+					</ul>
+					</li>`;
+			table.innerHTML +=r;
+			console.log(r);
+		});
+	};
+	var btn = document.getElementById('facult');
+	btn.addEventListener('click',faculty);
+	
+	
+	console.log(json);
+
+
+
+
+
+
+                      
+                  
+        console.log(json);
+
+
+
+
+</script>
+</body>
+</html>
+	

@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>json</title>
+	</head>
+	<body>
+		<div id="data"></div>
+		<script>
+			const d=`[{"name":"loki","class":"MCA"},{"name":"Vicky","class":"MCA"}]`;
+			const dat=JSON.parse(d);
+			var disp="<table border=1><tr><th>Name</th><th>class</th></tr>";
+			dat.forEach(function(item){
+				disp+="<tr><td>"+item.name+"</td><td>"+item.class+"</td></tr>";});
+			disp+="</table>";
+			document.getElementById("data").innerHTML=disp;
+		</script>
+	</body>
+</html>
+

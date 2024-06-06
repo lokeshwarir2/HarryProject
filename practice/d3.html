@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title> shapes d3</title>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<style>
+			svg{
+				background-color:yellow;
+			}
+			.shapes{
+				fill:red;
+				stroke:white;
+				stroke-width:2;
+			}
+		</style>
+	</head>
+	<body>
+		<svg class="shapes" height="1000px" width="1000px"></svg>
+		<script>
+			const svg=d3.select("svg");
+			svg.append("circle")
+			   .attr("cx",400)
+			   .attr("cy",100)
+			   .attr("r",100)
+			   .attr("class","shapes");
+			svg.append("rect")
+				.attr("x",300)
+				.attr("y",100)
+				.attr("height",100)
+				.attr("width",100)
+				.attr("class","shapes");
+			const points="100,100,200,300,300,100";
+			svg.append("polygon")
+				.attr("points",points)
+				.attr("class","shapes");
+		</script>
+	</body>
+</html>

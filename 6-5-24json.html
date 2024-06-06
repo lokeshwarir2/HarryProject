@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSON</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+ td,th{
+     border:1px solid #ddd;
+     padding:8px;
+     text-align:left;
+}
+    </style>
+  </head>
+  <body>
+    <h2>MCA Department Information</h2>
+    <h3>Faculty</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+      <tbody id="facultyTable"></tbody>
+    </table>
+
+    <h3>Students</h3>
+    <table>
+      <tr>
+        <th>Roll Number</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+      <tbody id="studentsTable"></tbody>
+    </table>
+
+    <script>
+      var data = {
+        college: "RV College of Engineering",
+        affiliation: "Visvesvaraya Technological University (VTU)",
+        department: "MCA",
+        faculty: [
+          {
+            name: "Renuka mam",
+            designation: "Professor",
+            email: "renuka@rvce.edu.in",
+            phone: "1234567890",
+          },
+          {
+            name: "Shandhya mam",
+            designation: "Associate Professor",
+            email: "shandhya@rvce.edu.in",
+            phone: "9876543210",
+          },
+          {
+            name: "Raj Gopal Sir",
+            designation: "Assistant Professor",
+            email: "rajgopal@rvce.edu.in",
+            phone: "11111111111",
+          },
+          {
+            name: "Rani mam",
+            designation: "Assistant Professor",
+            email: "rani@rvce.edu.in",
+            phone: "222222222222",
+          },
+          {
+            name: "Vivek kumar",
+            designation: "Professor",
+            email: "vivek@rvce.edu.in",
+            phone: "33333333333",
+          },
+        ],
+        students: [
+          {
+            roll_number: "RVCE23MCA094",
+            name: "Lokeshwari R",
+            email: "lokeshwarir.mca23@rvce.edu.in",
+            phone: "8971402501",
+          },
+          {
+            roll_number: "RVCE23MCA084",
+            name: "Naveen Kumar M",
+            email: "naveenkumarm.mca23@rvce.edu.in",
+            phone: "999999999999",
+          },
+          {
+            roll_number: "RVCE23MCA089",
+            name: "Dheeraj S",
+            email: "dheerajs.mca23@rvce.edu.in",
+            phone: "333333333333",
+          },
+          {
+            roll_number: "RVCE23MCA081",
+            name: "Ronak S",
+            email: "ronaks.mca23@rvce.edu.in",
+            phone: "1111111111111",
+          },
+          {
+            roll_number: "RVCE23MCA086",
+            name: "Arun Kumar Arali",
+            email: "arunkumar.mca23@rvce.edu.in",
+            phone: "44444444444444",
+          },
+        ],
+      };
+
+      function populateFacultyTable() {
+        var facultyTable = document.getElementById("facultyTable");
+        data.faculty.forEach(function (faculty) {
+          var row = "<tr>";
+          row += "<td>" + faculty.name + "</td>";
+          row += "<td>" + faculty.designation + "</td>";
+          row += "<td>" + faculty.email + "</td>";
+          row += "<td>" + faculty.phone + "</td>";
+          row += "</tr>";
+          facultyTable.innerHTML += row;
+        });
+      }
+
+      function populateStudentsTable() {
+        var studentsTable = document.getElementById("studentsTable");
+        data.students.forEach(function (student) {
+          var row = "<tr>";
+          row += "<td>" + student.roll_number + "</td>";
+          row += "<td>" + student.name + "</td>";
+          row += "<td>" + student.email + "</td>";
+          row += "<td>" + student.phone + "</td>";
+          row += "</tr>";
+          studentsTable.innerHTML += row;
+        });
+      }
+      window.onload = function () {
+        populateFacultyTable();
+        populateStudentsTable();
+      };
+    </script>
+  </body>
+</html>
